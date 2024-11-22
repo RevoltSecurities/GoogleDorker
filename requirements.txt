@@ -1,4 +1,0 @@
-colorama==0.4.4
-google_api_python_client==2.98.0
-httpx==0.25.0
-PyYAML==6.0.1
