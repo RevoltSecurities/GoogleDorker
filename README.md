@@ -1,95 +1,202 @@
-# GoogleDorker - An next level of Google Dorking tool For Cybersecurity Community Members
+# GoogleDorker - Unleash the power of Google dorking for ethical hackers with custom search precision.
 
-GoogleDorker is a command-line-based Google Dorking tool designed for bug hunters and penetration testers. It enables users to perform in-depth searches using Google Dorks to gather information about their targets. Utilizing Google's provided free APIs, GoogleDorker empowers cybersecurity professionals to conduct comprehensive reconnaissance and vulnerability assessment.
+![GitHub last commit](https://img.shields.io/github/last-commit/RevoltSecurities/GoogleDorker) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/RevoltSecurities/GoogleDorker) [![GitHub license](https://img.shields.io/github/license/RevoltSecurities/GoogleDorker)](https://github.com/RevoltSecurities/GoogleDorker/blob/main/LICENSE)
 
-# Features:
-- **Google Dorking:** Perform advanced searches using Google Dorks to find specific information on the web.
-- **Bug Hunting:** Uncover potential security vulnerabilities and misconfigurations.
-- **Penetration Testing:** Gather valuable intelligence for penetration testing engagements.
-- **Free Google APIs:** Utilize Google's free APIs to access powerful search capabilities.
-- **Run Anywhere:** Google Dorker ability run anywhere in any OS so no dependency required in you Operating system
+**GoogleDorker** is a powerful command-line tool tailored for bug hunters and penetration testers, enabling efficient Google Dorking. It allows users to perform advanced, targeted searches to gather critical information about their targets. By leveraging Google's APIs, **GoogleDorker** simplifies comprehensive reconnaissance and enhances the effectiveness of vulnerability assessments for cybersecurity professionals.
 
-# Usage:
+
+
+### **Features**
+- **Asynchronous Google Dorking:** Perform advanced and efficient searches using Google Dorks with high performance, powered by asynchronous processing.  
+- **Bug Hunting and Reconnaissance:** Discover valuable intelligence, potential vulnerabilities, and misconfigurations during ethical hacking and penetration testing.  
+- **Real-Time Progress Tracking:** Keep track of task progression with live updates for smooth operation.  
+- **Cross-Platform Compatibility:** Fully compatible with all major operating systems, requiring no additional dependencies.  
+- **Customizable Search Queries:** Fine-tune Google Dorks for targeted searches and precise results.  
+
+### Usage:
 ```bash
-usage: dorker [-h] [-q QUERY] [-d DOMAIN] [-o OUTPUT]
-
-A Powerfull Tool for google dorking
-
-options:
-  -h, --help            show this help message and exit
-  -q QUERY, --query QUERY
-                        [ALERT]:G oogle dorking query for your target
-  -d DOMAIN, --domain DOMAIN
-                        [ALERT]:Target name for Google dorking
-  -o OUTPUT, --output OUTPUT
-                        [ALERT]:File name to save the dorking results that are found
-```
-
-# Installation for All users:
-
-## Method 1:
-
-```bash
-pip install dorker
-
-git clone https://github.com/sanjai-AK47/GoogleDorker.git
-
-dorker -h
-
-```
-
-## Method 2:
-
-```bash
-git clone https://github.com/sanjai-AK47/GoogleDorker.git
-pip install .
 dorker -h
 ```
+```yaml
+       __                   __
+  ____/ /  ____    _____   / /__  ___    _____
+ / __  /  / __ \  / ___/  / //_/ / _ \  / ___/
+/ /_/ /  / /_/ / / /     / ,<   /  __/ / /
+\__,_/   \____/ /_/     /_/|_|  \___/ /_/
 
-# Information:
 
-For all users preferred Method 1 installtions for easy installtion and configuration for your api's after a successfull
-Installation go to Dorker directory and located google-dorker.yaml file and configure your api keys as mentioned bellow
+                    - RevoltSecurities
 
 
-# Configurations:
 
-Configure your api keys as a syntax That I have mentioned below
+[DESCRIPTION]: GoogleDorker - Unleash the power of Google dorking for ethical hackers with custom search precision.
+
+[USAGE]:
+
+    dorker [flags]
+
+[FLAGS]:
+
+    [INPUT]:
+
+        -q,  --query                    :  single dorking query for Dorker to search
+        -l,  --list                     :  filename that contains list of dorks with target name
+        stdin/stdout                    :  Dorker now supports stdin/stdout for reading dorks
+
+    [OUTPUT]:
+
+        -o,   --output                  :  filename to save the outputs.
+
+    [Rate-Limits]:
+
+        -t,    --threads                : set the concurrency level for dorking (default 20)
+
+    [OPTIMIZATION]:
+
+        -t,   --timeout                 :  timeout value for every sources requests (default: 15).
+        -d,   --delay                   :  specify a delay value between each requests (default: 1)
+
+    [UPDATE]:
+
+        -up,   --update                 :  updates Dorker tool to latest version (info: requires pip to be insalled).
+
+    [CONFIG]:
+
+        -px,  --proxy                   :  http proxy to use with Dorker's each request
+        -cp,  --config-path             :  custom path of config file for Dorker to read api keys (default path: $HOME.config/dorker/provider-config.yaml).
+
+    [DEBUG]:
+
+        -h,   --help                    :  displays this help message and exits
+        -s,   --silent                  :  disables showing banner and version of Dorker
+        -v,   --verbose                 :  enable to increase the verbosity of the Dorker
+```
+
+
+### Easy Installation :
+**PIP:**
+```bash
+pip install git+https://github.com/RevoltSecurities/GoogleDorker --break-system-packages
+```
+
+**PIPX:**
+```bash
+pipx install git+https://github.com/RevoltSecurities/GoogleDorker
+```
+## **Configuration**
+
+To configure **GoogleDorker**, you need to provide your Google API keys and Search Engine IDs in a configuration file. By default, the tool automatically loads the configuration file from:  
+`$HOME/.config/dorker/provider-config.yaml`  
+
+You can specify a custom configuration file path using the `-cp` or `--config-path` flag.
+
+---
+
+### **Configuration File Syntax**
+Define the API keys and Search Engine IDs in one of the following formats:
+
+#### **Format 1 (Inline List):**
+```yaml
+google: [
+    key1:cxid,
+    key2:cxid,
+    key3:cxid,
+    key4:cxid,
+    key5:cxid
+]
+```
+
+#### **Format 2 (Key-Value Pairs):**
+```yaml
+google:
+  - key1:cxid
+  - key2:cxid
+  - key3:cxid
+  - key4:cxid
+  - key5:cxid
+```
+
+---
+
+### **Custom Path for Configuration**
+If you want to load a configuration file from a custom location, use the `-cp` or `--config-path` flag as shown below:
+```bash
+dorker -cp /path/to/your/custom-config.yaml
+```
+This flexibility allows you to manage multiple configurations for different projects or environments efficiently.
+
+
+## **How to Get API Keys and CSE-ID? Follow These Steps:**
+
+Configuring **GoogleDorker** requires Google API keys and a Custom Search Engine ID (CSE-ID). Below is a step-by-step guide to obtaining and setting them up:
+
+---
+
+### **Step 1:** Log In to Your Google Account  
+Ensure you're logged into your Google account in your browser before proceeding.
+
+---
+
+### **Step 2:** Create a Custom Search Engine  
+1. Visit the [Programmable Search Engine](https://programmablesearchengine.google.com/controlpanel/create).  
+2. Create a new search engine and choose the **Search the entire web** option, as shown below:
+
+   ![Search Engine Creation](https://github.com/sanjai-AK47/GoogleDorker/assets/119435129/7b871906-a08b-4473-bc47-31f797ae88f6)
+
+---
+
+### **Step 3:** Retrieve Your Custom Search Engine ID (CSE-ID)  
+Once your search engine is successfully created:  
+1. Navigate to your search engine settings.  
+2. Copy the **cx value** (CSE-ID).  
+3. Add this value to your configuration YAML file under the **Google-CSE-ID** field, following the syntax provided.
+
+---
+
+### **Step 4:** Generate Your Google API Key  
+1. Go to the [Google Custom Search API](https://developers.google.com/custom-search/v1/introduction).  
+2. Click on the **Get Key** button.  
+3. Create a new project with any name and proceed to the next step.  
+   Example of creating a project:
+
+   ![API Key Generation](https://github.com/sanjai-AK47/GoogleDorker/assets/119435129/b7e5618d-4d3c-41a3-8147-95b5d31cc266)
+
+---
+
+### **Step 5:** Copy and Save Your API Key  
+Once the API key is generated:  
+1. Click **Show Key** to reveal it.  
+2. Copy the API key and add it to your configuration YAML file under the **Google-API** field.
+
+---
+
+### **Step 6:** Generate Additional API Keys for Efficiency  
+To maximize dorking efficiency:  
+- Repeat **Step 4** to generate multiple API keys (recommended: at least 10).  
+- Each API key allows approximately 100 queries, so having multiple keys increases your query capacity.
+
+---
+
+### **Example of Configuration YAML File**  
+Below is an example of how your configuration file should look:
 
 ```yaml
-
-Google-API: #Unlimited key are good
-
-  - # API keys here
-
-Google-CSE-ID: #Limited Id is enough
-
-  - # your CSE id og goole
-
-
+google:
+  - key1: cxid
+  - key2: cxid
+  - key3: cxid
+  - key4: cxid
+  - key5: cxid
+  - key6: cxid
+  - key7: cxid
+  - key8: cxid
+  - key9: cxid
+  - key10: cxid
 ```
+---
 
-## How to Get api keys and CSE-ID? Follow my steps here!:
-
-- **Step-1:** First login a google account in your browser
-- **Step-2:** Visit
-- [here](https://programmablesearchengine.google.com/controlpanel/create) and create a search engine and choose all web option like below mentioned in images
-
-![Screenshot from 2023-10-07 07-52-40](https://github.com/sanjai-AK47/GoogleDorker/assets/119435129/7b871906-a08b-4473-bc47-31f797ae88f6)
-
-- **Step-3:** After Creating your successfull search engine it time to copy your cx value and paste in yaml in below Google-CSE-ID with the following syntax given by me
-- **Step-4:** After completing these all process now its time to grab your api keys of google [here](https://developers.google.com/custom-search/v1/introduction)
-- **Step-5:** Press the get key button and create a new project with any name you want and click next , for example image in below
-![Screenshot from 2023-10-07 07-57-25](https://github.com/sanjai-AK47/GoogleDorker/assets/119435129/b7e5618d-4d3c-41a3-8147-95b5d31cc266)
-
-- **Step-6:** After creating and completing your api key is generated and press show key then copy it and paste in yaml file below Google-API with the following syntax given by me
-
-- **Step-7:** With the same process from step 4 you can get unlimited api keys so grab nearly 10 api keys for you efficiency of dorking it mean you can query 1000 times when u set nealy 10 api keys or more than that
-
-## Example Image of config yaml file
-![Screenshot from 2023-10-07 08-47-19](https://github.com/sanjai-AK47/GoogleDorker/assets/119435129/5e8e2d50-d187-4e70-a3f3-65e176eb3ee8)
-
-Ahh! Configuration are done now. NOW we will see how to use the dorker tool with a dorking query
+### **Configuration Done!**  
+Once you've completed the configuration, you're ready to use **GoogleDorker**.  
 
 
 ## Query Methods
@@ -108,20 +215,62 @@ dorker -d bentley.com -q inurl:api -o google_dorks.txt
 
 ```
 
-Query Methods are depends on your's and I preferred Method 1 will be best for all to get better results and for complicated dorking queries
+## **Running Dorker:**
 
+### **1. Pass a Single Query**
 
-## Issues:
+To pass a single query directly via the command line, use the `-q` or `--query` flag followed by the query string.
 
-Facing any issues? create a new issues and submit the issues you are facing in google dorker and that will be resolved as soon as possible
+Example:
+```bash
+dorker -q "site:example.com inurl:admin"
+```
 
+---
 
-# Support
+### **2. Pass a Query File**
 
-Hey guys Im [D.Sanjai Kumar](https://github.com/sanjai-AK47) Im the developer for these tools and try the other Tools in my repos for bug hunters and Show ur love ♥️ and give a ⭐ for this project
-Which will encourage me to develop tools like this and also another tools I have made for subdomain enumeration which best in results and modes check it out the [Subdominator](https://github.com/sanjai-AK47/Subdominator) and its features
-and Thanks to all supporters! in advance
+Use the `-l` or `--list` flag followed by the path to a file containing multiple queries. Each line in the file should represent a separate query.
 
+Example:
+```bash
+dorker -l queries.txt
+```
+
+---
+
+### **3. Pass Queries via stdin (Pipe Input)**
+
+You can pass queries using stdin by piping input into **GoogleDorker**.
+
+Example:
+```bash
+echo "site:example.com inurl:admin" | dorker
+```
+
+For multiple queries:
+```bash
+echo -e "site:example.com inurl:admin\nsite:example.com inurl:login" | dorker
+```
+
+---
+
+### **Summary of Flags for Query Input:**
+
+- `-q, --query`: Pass a single query string.
+- `-l, --list`: Provide a file with a list of queries.
+- `stdin`: Pipe input directly to **GoogleDorker** for dynamic queries.
+
+## **Issues**
+Encountering any issues? Create a new issue in the **GoogleDorker** repository and describe the problem you’re facing. Your concerns will be addressed promptly to ensure smooth usage of the tool.
+
+---
+
+## **Support**
+
+This tool is developed by **[RevoltSecurities](https://github.com/RevoltSecurities)**. If you enjoy using **GoogleDorker**, don’t forget to explore more tools in our repository designed specifically for bug hunters and penetration testers.  
+Show your support by giving this project a ⭐ on GitHub! Your encouragement inspires us to create more innovative tools for the cybersecurity community.  
+Check out **[Subdominator](https://github.com/RevoltSecurities/Subdominator)** for powerful subdomain enumeration and much more tools by us! Thank you to all our supporters!
 
 
 
