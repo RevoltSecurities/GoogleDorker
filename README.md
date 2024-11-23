@@ -203,23 +203,6 @@ google:
 ### **Configuration Done!**  
 Once you've completed the configuration, you're ready to use **GoogleDorker**.  
 
-
-## Query Methods
-
-### Method1:
-
-```bash
-dorker -q "inurl:api site:bentley.com" --output google_dorks.txt
-
-```
-
-### Method2:
-
-```bash
-dorker -d bentley.com -q inurl:api -o google_dorks.txt
-
-```
-
 ## **Running Dorker:**
 
 ### **1. Pass a Single Query**
